@@ -90,9 +90,12 @@ const playSong = (id) => {
   audio.src = song.src;
   audio.title = song.title;
 
+  // Make sure it starts from the beginning
   if (userData?.currentSong === null || userData?.currentSong.id !== song.id) {
+    // no current song is playing or if the current song is different from the one that is about to be played.
     audio.currentTime = 0;
   } else {
+    // if the current song is the same as the one that is about to be played.
     audio.currentTime = userData?.songCurrentTime;
   }
   userData.currentSong = song;
